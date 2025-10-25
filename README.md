@@ -1,4 +1,4 @@
-# Comparative Analysis of Machine Learning Models for Phishing and Fraud Detection
+# Analysis of Machine Learning Models for Phishing and Fraud Detection
 
 ## Introduction
 
@@ -17,6 +17,7 @@ Both significant preprocessing and feature engineering were performed on the dat
         The receiver and date columns were dropped, as they contained many missing values and/or were deemed to have low predictive impact.
         Missing values in the subject column (28 instances) were filled with empty strings.
         The sender, subject, and urls columns were converted to string types for consistent processing.
+    
     Feature Engineering:
         n_urls: A new feature was created to count the total number of URLs found in an email's subject, body, and urls fields.
         subject_len: A feature for the character length of the subject line.
@@ -25,8 +26,12 @@ Both significant preprocessing and feature engineering were performed on the dat
 
 ## Methods
     
-Tools Used: Python, Jupyter Notebook, Pandas, Matplotlib, and Seaborn. Scikit-learn was the primary library used for machine learning, including:
-    
+**Tools Used:**
+<br>
+Python, Jupyter Notebook, Pandas, Matplotlib, and Seaborn.<br>
+Scikit-learn was the primary library used for machine learning, including:
+
+
     TfidfVectorizer for text data vectorization.
 
     train_test_split for creating training and test sets.
@@ -41,17 +46,17 @@ Keeping in mind that the core of this project is text classification, we chose t
 
     A diverse set of six classification models was chosen to compare their performance, speed, and characteristics on this high-dimensional text data:
        
-       Multinomial Naive Bayes (MultinomialNB): A classic, fast baseline model that works very well with Term Frequency-Inverse Document Frequency text data.
+    Multinomial Naive Bayes (MultinomialNB): A classic, fast baseline model that works very well with Term Frequency-Inverse Document Frequency text data.
 
-        Logistic Regression (LogisticRegression): A robust, fast, and highly interpretable linear model that performs well on high-dimensional, sparse data.
+    Logistic Regression (LogisticRegression): A robust, fast, and highly interpretable linear model that performs well on high-dimensional, sparse data.
 
-        Linear SVC (LinearSVC): Known for its high performance and efficiency on sparse data like TF-IDF vectors. It is often a top performer for text classification.
+    Linear SVC (LinearSVC): Known for its high performance and efficiency on sparse data like TF-IDF vectors. It is often a top performer for text classification.
 
-        K-Nearest Neighbors (KNeighborsClassifier): A non-linear, instance-based model chosen to see if a different decision-making approach would be effective.
+    K-Nearest Neighbors (KNeighborsClassifier): A non-linear, instance-based model chosen to see if a different decision-making approach would be effective.
 
-        Random Forest (RandomForestClassifier): A powerful tree-based ensemble method that can capture complex, non-linear interactions between features.
+    Random Forest (RandomForestClassifier): A powerful tree-based ensemble method that can capture complex, non-linear interactions between features.
 
-        XGBoost (XGBClassifier): A state-of-the-art gradient-boosting ensemble model, chosen for its typically high accuracy.
+    XGBoost (XGBClassifier): A state-of-the-art gradient-boosting ensemble model, chosen for its typically high accuracy.
 
 The models were split into an 80% training set and a 20% test set. Each model's performance was evaluated based on accuracy, training/prediction time, Cohen's Kappa Coefficient, and a detailed classification report (precision/recall/F1-score).
 
@@ -61,13 +66,14 @@ To speak to the matter of answering our research question, we found that machine
 
 Here is a summary of the model results on the 20% test set:
 
-Model,Test Accuracy,Cohen's Kappa,Training Time (s),Prediction Time (s)
-K-Nearest Neighbors,99.58%,0.991,0.01,10.62
-Naive Bayes,98.95%,0.979,0.02,0.00
-Logistic Regression,99.40%,0.988,0.79,0.00
-Random Forest,99.35%,0.987,5.78,0.09
-Linear SVC,99.80%,0.996,0.15,0.00
-XGBoost,99.55%,0.991,28.83,0.04
+| Model               | Test Accuracy | Cohen's Kappa | Training Time (s)  | Prediction Time (s)  |
+|---------------------|---------------|---------------|--------------------|----------------------|
+| K-Nearest Neighbors | 99.58%        | 0.991         | 0.01               | 10.62                |
+| Naive Bayes         | 98.95%        | 0.979         | 0.02               | 0.00                 |
+| Logistic Regression | 99.40%        | 0.988         | 0.79               | 0.00                 |
+| Random Forest       | 99.35%        | 0.987         | 5.78               | 0.09                 |
+| Linear SVC          | 99.80%        | 0.996         | 0.15               | 0.00                 |
+| XGBoost             | 99.55%        | 0.991         | 28.83              | 0.04                 |
 
 As a brief explanation of what the metrics mean in the project’s context:
 
