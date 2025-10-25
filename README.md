@@ -24,66 +24,16 @@ Both significant preprocessing and feature engineering were performed on the dat
         predictor: To prepare the data for vectorization, a single text feature was created by combining the content of the subject, body, sender, and urls columns.
 
 ## Methods
-
-Here is a comprehensive README.md file based on the analysis and structure in your Jupyter Notebook.
-
-Machine Learning as an Aid Against Phishing and Fraud
-
-Authors:
-
-    Alan Becker
-
-    Alexander Zambie
-
-    Brennan Slate
-
-    Lazaro Martinez Jimenez
-
-Introduction
-
-Why was the project undertaken? A phishing email is a fraudulent message from a cybercriminal who impersonates a trusted source to trick a victim into revealing sensitive information, such as passwords, credit card numbers, or bank details. This form of cybercrime is one of the most common and damaging threats to individuals and organizations.
-
-What was the research question, the tested hypothesis, or the purpose of the research? The purpose of this project was to build and compare different machine learning models to determine their effectiveness in accurately distinguishing between phishing/fraudulent emails and legitimate emails based on their content.
-
-Selection of Data
-
-What is the source of the dataset? Characteristics of data? This project used the Phishing Email Dataset from Kaggle. This comprehensive dataset contains approximately 82,500 emails, with 42,891 labeled as phishing (1) and 39,595 as legitimate (0). The emails are sourced from various corpora, including Enron, Ling, CEAS, Nazario, SpamAssassin, and Nigerian Fraud emails.
-
-For this project, we focused specifically on the CEAS subset (CEAS_08.csv), which contains 39,154 emails. This subset was chosen because it provides more relevant features and is less dated than some of the other corpora in the collection.
-
-Any munging or feature engineering? Yes, significant preprocessing and feature engineering were performed:
-
-    Data Munging (Cleaning):
-
-        The receiver and date columns were dropped, as they contained many missing values or were deemed to have low predictive impact for a content-based model.
-
-        Missing values in the subject column (28 instances) were filled with empty strings.
-
-        The sender, subject, and urls columns were converted to string types for consistent processing.
-
-    Feature Engineering:
-
-        n_urls: A new feature was created to count the total number of URLs found in an email's subject, body, and urls fields.
-
-        subject_len: A feature for the character length of the subject line.
-
-        body_len: A feature for the character length of the email body.
-
-        predictor: To prepare the data for vectorization, a single text feature was created by combining the content of the subject, body, sender, and urls columns.
-
-Methods
-
-What materials/APIs/tools were used, or who was included in answering the research question?
     
-    Tools Used: Python, Jupyter Notebook, Pandas, Matplotlib, and Seaborn. Scikit-learn was the primary library used for machine learning, including:
-        
-        TfidfVectorizer for text data vectorization.
+Tools Used: Python, Jupyter Notebook, Pandas, Matplotlib, and Seaborn. Scikit-learn was the primary library used for machine learning, including:
+    
+    TfidfVectorizer for text data vectorization.
 
-        train_test_split for creating training and test sets.
+    train_test_split for creating training and test sets.
 
-        Metrics: accuracy_score, classification_report, confusion_matrix, roc_curve, roc_auc_score, and cohen_kappa_score.
+    Metrics: accuracy_score, classification_report, confusion_matrix, roc_curve, roc_auc_score, and cohen_kappa_score.
 
-        XGBoost was also used as an additional powerful ensemble model.
+    XGBoost was also used as an additional powerful ensemble model.
 
 Keeping in mind that the core of this project is text classification, we chose to use the following tools/models:
     
