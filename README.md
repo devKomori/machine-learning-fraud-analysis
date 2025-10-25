@@ -1,4 +1,4 @@
-# Analysis of Machine Learning Models for Phishing and Fraud Detection
+# Comparative Analysis of Machine Learning Models for Phishing and Fraud Detection
 
 ## Introduction
 
